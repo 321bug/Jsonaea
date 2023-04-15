@@ -32,8 +32,6 @@ Boolean = {
     False:"false"
 }
 
-#设置（set函数）
-
 #解读arcaea文件（load函数） -- 已完成
 def load(arcPath:str,IsCreateJson=False,JsonPath:str=None) -> dict:
     """
