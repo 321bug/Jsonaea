@@ -125,54 +125,46 @@ input("已完成")
     在aff文件``timinggroup(){};``中小括号中的标识，一般用于对timinggroup中的事件达成特殊效果（如noinput）  
     字典格式如：
       ```json
-      [
-        "noinput",
-        "anglex200"
-      ]
+      "noinput",
+      "anglex200"
       ```
       
   - notes  
     note事件，分为``tap``、``hold``、``arc``三个类型，由key值``"type"``区分  
     其中``tap``的字典格式如：
     ```json
-    {
-      "type": "tap",
-      "time": 0,
-      "track": 1
-    }
+    "type": "tap",
+    "time": 0,
+    "track": 1
     ```
     其中track指轨道，目前无法读取track为小数的tap事件  
     
     其中``hold``的字典格式如：
     ```json
-    {
-      "type": "hold",
-      "startTime": 0,
-      "endTime": 1000,
-      "track": 3
-    },
+    "type": "hold",
+    "startTime": 0,
+    "endTime": 1000,
+    "track": 3
     ```
     其中track指轨道，目前无法读取track为小数的hold事件  
    
     其中``arc``的字典格式如：
     ```json
-     {
-     "type": "arc",
-     "startTime": 0,
-     "endTime": 1000,
-     "startPos": [
-       0.5,
-       1.0
-     ],
-     "endPos": [
-       1.0,
-       1.0
-     ],
-     "arcType": "si",
-     "color": "blue",
-     "hitsound": "none",
-     "IsSkyline": true
-     }
+   "type": "arc",
+   "startTime": 0,
+   "endTime": 1000,
+   "startPos": [
+     0.5,
+     1.0
+   ],
+   "endPos": [
+     1.0,
+     1.0
+   ],
+   "arcType": "si",
+   "color": "blue",
+   "hitsound": "none",
+   "IsSkyline": true
     ```
     其中``"startPos"``与``"endPos"``列表中下标为0的参数时坐标x,下标为1的为坐标y  
     ``"arcType"``是指该arc的滑动方式  
@@ -180,10 +172,10 @@ input("已完成")
     ``"IsSkyline"``为该arc是否为黑线，反之为蛇  
     如果该arc上有arctap，那么将在下方添加键值对，如：  
     ```json
-       "arctap": [
-         200,
-         600
-      ]
+    "arctap": [
+       200,
+       600
+    ]
     ```
     列表中存储着该arc上所有arctap的时间，其范围在startTime与endTime之间  
     
@@ -191,11 +183,9 @@ input("已完成")
     控制铺面的bpm（流速）与beat（小节线）
     其格式如：
     ```json
-    {
-      "time": 0,
-      "BPM": 191.0,
-      "metreInfo": 4.0
-    },
+    "time": 0,
+    "BPM": 191.0,
+    "metreInfo": 4.0
     ```
     其中``"metreInfo"``是指表示每多少个四分拍为一小节，并出现一条小节线  
     多个字典以列表形式存储  
