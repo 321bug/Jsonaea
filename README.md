@@ -1,5 +1,5 @@
 ***Jsonaea*** *script by* ***Begloon.***  
-***version***:b230402
+***version***:b230415
 # 简介
 **Jsonaea**为可将Arcaea游戏中铺面文件（``x.aff``）转换为json文件 / 字典，亦可将json文件 / 字典转换回铺面文件的实用库。  
 其理论上可读取并转换aff文件中的任何语句（目前除注释外），并无损地将其互相转换。  
