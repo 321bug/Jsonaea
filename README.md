@@ -150,21 +150,21 @@ input("已完成")
    
     其中``arc``的字典格式如：
     ```json
-   "type": "arc",
-   "startTime": 0,
-   "endTime": 1000,
-   "startPos": [
-     0.5,
-     1.0
-   ],
-   "endPos": [
-     1.0,
-     1.0
-   ],
-   "arcType": "si",
-   "color": "blue",
-   "hitsound": "none",
-   "IsSkyline": true
+    "type": "arc",
+    "startTime": 0,
+    "endTime": 1000,
+    "startPos": [
+      0.5,
+      1.0
+    ],
+    "endPos": [
+      1.0,
+      1.0
+    ],
+    "arcType": "si",
+    "color": "blue",
+    "hitsound": "none",
+    "IsSkyline": true
     ```
     其中``"startPos"``与``"endPos"``列表中下标为0的参数时坐标x,下标为1的为坐标y  
     ``"arcType"``是指该arc的滑动方式  
