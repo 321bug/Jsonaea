@@ -20,14 +20,21 @@ pip install 下载的文件本地路径
 import jsonaea
 ```
 ---
-使用load函数生成json文件 / 字典：
+使用load函数生成字典：
 ```python
-jsonaea.load(arcPath,IsCreateJson,JsonPath)
+jsonaea.load(arcPath)
 ```
 ``arcPath``: Arcaea铺面文件导入路径  
-``IsCreateJson``: 是否导出json文件，使用json库辅助导出  
-``JsonPath``: 如果导出json文件（``IsCreateJson=True``），设置导出的json文件路径  
 此函数将返回一个字典。
+
+---
+使用createJson函数生成json文件
+```python
+createJson(dict,JsonPath)
+```
+`dict`:创建json文件的字典
+`JsonPath`:创建json文件的路径
+此函数不返回值，会创建一个json文件。
 
 ---
 导出生成的json文件 / 字典为``.aff``文件：
@@ -41,9 +48,9 @@ jsonaea.output(arcJson,arcPath)
 ### 示例
 jsonaea库使用的具体示例，以下代码可将铺面中的arc全部转化为蛇：  
 ```python
-import jsonaea
 import tkinter as tk
 from tkinter import filedialog
+from jsonaea import *
 
 #生成铺面导入窗口
 root = tk.Tk()
@@ -51,19 +58,18 @@ root.withdraw ()
 arcPath = filedialog.askopenfilename () 
 
 #导入铺面
-J = jsonaea.load(arcPath,IsCreateJson=True,JsonPath="./this.json")
-
-#处理铺面
-for i1,tl in enumerate(J["TimingList"]):
-    #遍历该timinggroup中的所有note
-    for i2,note in enumerate(tl["notes"]):
-        #判断该note是否为arc
-        if note["type"] == "arc":
-            #将该arc改为蛇
-            J["TimingList"][i1]["notes"][i2]["IsSkyline"] = False
-
+arc = load(arcPath)
+#设置Tools库全局变量
+Tools.arcJson = arc
+#检索所有黑线事件
+searchedEvent = Tools.searchEventSubject({"type":"arc","IsSkyline": True})
+#并将其全部转化为蛇
+for se in searchedEvent:
+    Tools.changeEvent(se,{"IsSkyline":False})
 #导出铺面
-jsonaea.output(J,"./this.aff")
+output(arc,"./noSkyline.aff")
+#导出处理完的Json文件
+createJson(arc, "./this.json")
 input("已完成")
 ```
 
