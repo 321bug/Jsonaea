@@ -1,6 +1,6 @@
 '''
 Jsonaea by Begloon (2023)\n
-这是一个可以将Arcaea游戏中铺面文件（``x.aff``）转换为json文件，亦可将json文件转换回铺面文件的实用库。\n
+这是一个可以将Arcaea游戏中铺面文件（``*.aff``）转换为json文件/字典，亦可将json文件/字典转换回铺面文件的实用库。\n
 内置了Tools实用库
 
 使用示例::
@@ -13,8 +13,8 @@ Jsonaea by Begloon (2023)\n
 '''
 import re, json
 from . import Tools
-__version__ = "b0402"
-__script__ = 230402
+__version__ = "b230424"
+__script__ = 230424
 
 #纠正对照字典
 ArcColor = {
@@ -33,7 +33,7 @@ Boolean = {
 }
 
 #解读arcaea文件（load函数） -- 已完成
-def load(arcPath:str,IsCreateJson=False,JsonPath:str=None) -> dict:
+def load(arcPath:str) -> dict:
     """
     使用``load()``来加载Arcaea铺面文件（``x.aff``），并使其转换为json文件（字典）\n
     ``arcPath``: Arcaea铺面文件导入路径
@@ -146,11 +146,6 @@ def load(arcPath:str,IsCreateJson=False,JsonPath:str=None) -> dict:
                             i += 3
                         else:
                             break
-    if IsCreateJson:
-        jsonData = json.dumps(ArcJson,indent=4)
-        w = open(JsonPath,"w")
-        w.write(jsonData)
-        w.close()
     return ArcJson
 
 #写入arcaea文件（output函数）  --  已完成
@@ -190,7 +185,7 @@ def output(arcJson:dict,arcPath:str):
             elif de["type"] == "arc":
                 f.write("arc(%r,%r,%r,%r,%s,%r,%r,%d,%s,%s)"%(de["startTime"],de["endTime"],de["startPos"][0],de["endPos"][0],de["arcType"],
                 de["startPos"][1],de["endPos"][1],ArcColor[de["color"]],de["hitsound"],Boolean[de["IsSkyline"]]))
-                if "arctap" in de:
+                if "arctap" in de and not de["arctap"] == []:
                     f.write("[")
                     for index,i in enumerate(de["arctap"]):
                         f.write("arctap(%r)"%i)
@@ -238,3 +233,15 @@ def output(arcJson:dict,arcPath:str):
                         f.write("]")
                     f.write(";\n")
             f.write("};\n")
+
+def createJson(dict,JsonPath:str):
+    """
+    将字典创建为json文件\n
+    `dict`:创建json文件的字典
+    `JsonPath`:创建json文件的路径
+    此函数不返回值，会创建一个json文件。
+    """
+    jsonData = json.dumps(dict,indent=4)
+    w = open(JsonPath,"w")
+    w.write(jsonData)
+    w.close()
