@@ -22,7 +22,7 @@ import jsonaea
 ---
 使用load函数生成字典：
 ```python
-jsonaea.load(arcPath)
+load(arcPath)
 ```
 ``arcPath``: Arcaea铺面文件导入路径  
 此函数将返回一个字典。
@@ -39,7 +39,7 @@ createJson(dict,JsonPath)
 ---
 导出生成的json文件 / 字典为``.aff``文件：
 ```python
-jsonaea.output(arcJson,arcPath)
+output(arcJson,arcPath)
 ```
 ``arcJson``: 提供的json文件（字典）  
 ``arcPath``: Arcaea铺面文件导出路径  
