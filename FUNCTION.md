@@ -42,7 +42,7 @@ Tools.sort(oldJson:list)
 Tools.math
 ```
 math组。该组中有用于计算arc的变换方式的函数，分别为`straight(x)` `sineIn(x)` `sineOut(x)` `bezier(x)`。  
-`x`:计算该函数的自变量
+`x`:计算该函数的自变量  
 这些函数都会返回对应自变量所计算出的因变量（float），其图像如下：  
 
 <img src=https://github.com/321bug/Jsonaea/raw/main/imgs/functions.png height=340/>
