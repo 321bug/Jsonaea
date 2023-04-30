@@ -122,12 +122,13 @@ def getAllEvent() -> list:
                 allEvent.append([i,[indexN,listT,index]])
     return allEvent
 
-def changeEvent(EventSubject,uploadDict={},removeDict={}):
+def changeEvent(EventSubject,uploadDict={},removeKey=[]):
     "通过`EventSubject`来更改事件的函数"
     event = getEventSubject(EventSubject)
     event.update(uploadDict)
-    if not removeDict == {}:
-        event.pop([(a,b) for a,b in list(removeDict.items())])
+    if not removeKey == []:
+        for key in removeKey:
+            del event[key]
     if EventSubject[0] == -1:
         del ([EventSubject[1]])[EventSubject[2]]
         arcJson[EventSubject[1]].insert(EventSubject[2],event)
