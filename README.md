@@ -8,7 +8,7 @@
 
 ## 快速使用
 在github本项目上直接下载后手动安装。   
-在 [本页面](https://github.com/321bug/Jsonaea/tree/main/dist) 下载两个打包中任意一个  
+在 [本页面](https://github.com/321bug/Jsonaea/tree/main/dist) 下载最新版本的两个打包中任意一个  
 然后在终端中输入命令：
 ```
 pip install 下载的文件本地路径  
