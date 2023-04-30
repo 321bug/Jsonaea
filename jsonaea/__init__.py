@@ -13,8 +13,7 @@ Jsonaea by Begloon (2023)\n
 '''
 import re, json
 from . import Tools
-__version__ = "b230424"
-__script__ = 230424
+__script__ = 230430
 
 #纠正对照字典
 ArcColor = {
