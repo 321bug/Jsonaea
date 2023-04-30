@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
  
 setuptools.setup(
     name="Jsonaea", # 用自己的名替换其中的YOUR_USERNAME_
-    version="BETA",    #包版本号，便于维护版本
+    version="b230430",    #包版本号，便于维护版本
     author="Begloon(321bug)",    #作者，可以写自己的姓名
     author_email="bugbugbug321@163.com",    #作者联系方式，可写自己的邮箱地址
     description="将Arcaea游戏中铺面文件（x.aff）转换为json文件，亦可将json文件转换回铺面文件的实用库",#包的简述
