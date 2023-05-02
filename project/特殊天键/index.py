@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
-from pydub import AudioSegment
+from pydub import AudioSegment   #外置库
 from jsonaea import *
 import os
 
@@ -40,7 +40,7 @@ for es,time in arctaplist:
         arctaplist[index].append(_name)
         continue
     _name = "clip%03d.mp3"%_id
-    #clip[time:arctaplist[index+1][1]].export("musicClips\\"+_name)
+    #clip[time:arctaplist[index+1][1]].export("musicClips\\"+_name)    建议第一次跑加上这句，调试的时候注释掉，不然速度太慢
     arctaplist[index].append(_name)
     print("已完成:",_name)
     _id += 1
